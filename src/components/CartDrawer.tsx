@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { X, Minus, Plus, ShoppingBag } from 'lucide-react';
 import { useCartStore } from '@/stores/cartStore';
 import { getImage } from '@/lib/imageMap';
@@ -107,9 +108,13 @@ const CartDrawer = () => {
                 <p className="text-xs text-muted-foreground">
                   Shipping calculated at checkout
                 </p>
-                <button className="w-full py-3.5 bg-primary text-primary-foreground text-xs uppercase tracking-[0.2em] hover:bg-primary/90 transition-colors">
+                <Link
+                  to="/checkout"
+                  onClick={closeCart}
+                  className="block w-full py-3.5 bg-primary text-primary-foreground text-xs uppercase tracking-[0.2em] hover:bg-primary/90 transition-colors text-center"
+                >
                   Proceed to Checkout
-                </button>
+                </Link>
               </div>
             )}
           </motion.div>

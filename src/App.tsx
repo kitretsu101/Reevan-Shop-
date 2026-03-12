@@ -4,6 +4,7 @@ import FooterSection from '@/components/FooterSection';
 import CartDrawer from '@/components/CartDrawer';
 import HomePage from '@/pages/HomePage';
 import CategoryPage from '@/pages/CategoryPage';
+import CheckoutPage from '@/pages/CheckoutPage';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/:slug" element={<CategoryPage />} />
           </Routes>
         </main>
