@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, ShoppingBag, Menu, X } from 'lucide-react';
 import { navLinks } from '@/data/products';
@@ -9,12 +10,18 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const totalItems = useCartStore((s) => s.totalItems());
   const openCart = useCartStore((s) => s.openCart);
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
 
   return (
     <>
@@ -37,20 +44,24 @@ const Navbar = () => {
             </button>
 
             {/* Logo */}
-            <a href="/" className="luxury-heading text-2xl lg:text-3xl font-semibold tracking-[0.15em]">
+            <Link to="/" className="luxury-heading text-2xl lg:text-3xl font-semibold tracking-[0.15em]">
               REVAAN
-            </a>
+            </Link>
 
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.label}
-                  href={link.href}
-                  className="text-xs uppercase tracking-[0.2em] font-medium text-foreground/70 hover:text-foreground transition-colors duration-300"
+                  to={link.href}
+                  className={`text-xs uppercase tracking-[0.2em] font-medium transition-colors duration-300 ${
+                    location.pathname === link.href
+                      ? 'text-foreground'
+                      : 'text-foreground/70 hover:text-foreground'
+                  }`}
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </nav>
 
@@ -87,17 +98,23 @@ const Navbar = () => {
           >
             <nav className="flex flex-col items-center justify-center h-full gap-8">
               {navLinks.map((link, i) => (
-                <motion.a
+                <motion.div
                   key={link.label}
-                  href={link.href}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.05 }}
-                  className="luxury-heading text-2xl tracking-[0.15em]"
-                  onClick={() => setMobileOpen(false)}
                 >
-                  {link.label}
-                </motion.a>
+                  <Link
+                    to={link.href}
+                    className={`luxury-heading text-2xl tracking-[0.15em] ${
+                      location.pathname === link.href
+                        ? 'text-foreground'
+                        : 'text-foreground/70'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
               ))}
             </nav>
           </motion.div>

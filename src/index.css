@@ -1,137 +1,158 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 30 25% 96%;
-    --foreground: 20 25% 12%;
+    /* shadcn/ui — Light (cream/nude luxury palette) */
+    --background: 36 33% 97%;
+    --foreground: 30 15% 12%;
 
-    --card: 35 30% 97%;
-    --card-foreground: 20 25% 12%;
+    --card: 36 33% 97%;
+    --card-foreground: 30 15% 12%;
 
-    --popover: 35 30% 97%;
-    --popover-foreground: 20 25% 12%;
+    --popover: 36 33% 97%;
+    --popover-foreground: 30 15% 12%;
 
-    --primary: 30 35% 28%;
-    --primary-foreground: 40 30% 95%;
+    --primary: 30 15% 12%;
+    --primary-foreground: 36 33% 97%;
 
-    --secondary: 30 18% 90%;
-    --secondary-foreground: 20 25% 15%;
+    --secondary: 36 20% 93%;
+    --secondary-foreground: 30 15% 12%;
 
-    --muted: 30 15% 92%;
-    --muted-foreground: 20 10% 45%;
+    --muted: 36 20% 91%;
+    --muted-foreground: 30 10% 45%;
 
-    --accent: 35 45% 42%;
-    --accent-foreground: 40 30% 95%;
+    --accent: 32 60% 55%;
+    --accent-foreground: 36 33% 97%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 30 20% 88%;
-    --input: 30 20% 88%;
-    --ring: 30 35% 28%;
+    --border: 30 15% 85%;
+    --input: 30 15% 85%;
+    --ring: 30 15% 12%;
 
-    --radius: 0.25rem;
+    --radius: 0rem;
 
-    --sidebar-background: 30 20% 95%;
-    --sidebar-foreground: 20 25% 12%;
-    --sidebar-primary: 30 35% 28%;
-    --sidebar-primary-foreground: 40 30% 95%;
-    --sidebar-accent: 30 18% 90%;
-    --sidebar-accent-foreground: 20 25% 15%;
-    --sidebar-border: 30 20% 88%;
-    --sidebar-ring: 30 35% 28%;
+    /* Custom brand tokens */
+    --gold: 43 74% 49%;
+    --gold-muted: 43 40% 65%;
+    --cream: 36 33% 97%;
+    --nude: 25 30% 75%;
+    --dark-luxury: 25 20% 8%;
 
-    /* Custom luxury tokens */
-    --gold: 38 60% 55%;
-    --gold-muted: 35 30% 75%;
-    --cream: 38 35% 94%;
-    --nude: 25 20% 85%;
-    --dark-luxury: 20 20% 8%;
-
-    --font-serif: 'Cormorant Garamond', Georgia, serif;
-    --font-sans: 'DM Sans', system-ui, sans-serif;
+    /* Sidebar (unused but expected by shadcn sidebar) */
+    --sidebar-background: 30 15% 12%;
+    --sidebar-foreground: 36 33% 97%;
+    --sidebar-primary: 43 74% 49%;
+    --sidebar-primary-foreground: 25 20% 8%;
+    --sidebar-accent: 30 12% 18%;
+    --sidebar-accent-foreground: 36 33% 97%;
+    --sidebar-border: 30 12% 18%;
+    --sidebar-ring: 43 74% 49%;
   }
 
   .dark {
-    --background: 20 20% 8%;
-    --foreground: 35 20% 90%;
-    --card: 20 18% 12%;
-    --card-foreground: 35 20% 90%;
-    --popover: 20 18% 12%;
-    --popover-foreground: 35 20% 90%;
-    --primary: 38 60% 55%;
-    --primary-foreground: 20 20% 8%;
-    --secondary: 20 15% 18%;
-    --secondary-foreground: 35 20% 90%;
-    --muted: 20 15% 18%;
-    --muted-foreground: 25 12% 55%;
-    --accent: 35 45% 42%;
-    --accent-foreground: 35 20% 90%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 20 15% 20%;
-    --input: 20 15% 20%;
-    --ring: 38 60% 55%;
-  }
-}
+    --background: 25 20% 8%;
+    --foreground: 36 33% 95%;
 
-@layer base {
+    --card: 25 18% 11%;
+    --card-foreground: 36 33% 95%;
+
+    --popover: 25 18% 11%;
+    --popover-foreground: 36 33% 95%;
+
+    --primary: 36 33% 95%;
+    --primary-foreground: 25 20% 8%;
+
+    --secondary: 25 15% 15%;
+    --secondary-foreground: 36 33% 95%;
+
+    --muted: 25 15% 18%;
+    --muted-foreground: 30 10% 55%;
+
+    --accent: 32 60% 55%;
+    --accent-foreground: 36 33% 97%;
+
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 25 15% 20%;
+    --input: 25 15% 20%;
+    --ring: 36 33% 95%;
+
+    --sidebar-background: 25 20% 6%;
+    --sidebar-foreground: 36 33% 95%;
+    --sidebar-primary: 43 74% 49%;
+    --sidebar-primary-foreground: 25 20% 8%;
+    --sidebar-accent: 25 15% 12%;
+    --sidebar-accent-foreground: 36 33% 95%;
+    --sidebar-border: 25 15% 12%;
+    --sidebar-ring: 43 74% 49%;
+  }
+
   * {
     @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-sans);
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-serif);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
 @layer components {
+  /* Typography utilities used throughout components */
   .luxury-heading {
-    font-family: var(--font-serif);
-    @apply tracking-wide;
+    @apply font-serif tracking-[0.08em];
   }
 
   .luxury-subheading {
-    font-family: var(--font-sans);
-    @apply uppercase tracking-[0.25em] text-sm font-medium text-muted-foreground;
+    @apply text-xs uppercase tracking-[0.25em] font-sans font-medium text-muted-foreground;
   }
 
+  /* Hero gradient overlay */
   .luxury-gradient-overlay {
     background: linear-gradient(
       to top,
-      hsl(20 20% 8% / 0.7) 0%,
-      hsl(20 20% 8% / 0.3) 40%,
+      hsl(var(--dark-luxury) / 0.85) 0%,
+      hsl(var(--dark-luxury) / 0.3) 50%,
       transparent 100%
     );
   }
 
+  /* Smooth zoom on hover for product images */
+  .luxury-image-zoom {
+    @apply transition-transform duration-700 ease-in-out;
+  }
+
+  .luxury-image-zoom:hover,
+  .group:hover .luxury-image-zoom {
+    @apply scale-105;
+  }
+
+  /* Subtle lift on hover for product cards */
   .luxury-card-hover {
-    @apply transition-all duration-500 ease-out;
+    @apply transition-transform duration-500 ease-in-out;
   }
 
   .luxury-card-hover:hover {
-    @apply shadow-xl;
-    transform: translateY(-4px);
+    @apply -translate-y-1;
   }
 
-  .luxury-image-zoom {
-    @apply transition-transform duration-700 ease-out;
-  }
-
-  .luxury-image-zoom:hover {
-    transform: scale(1.05);
+  /* Gold glow accent for accessories cards */
+  .luxury-glow {
+    @apply transition-shadow duration-500;
   }
 
   .luxury-glow:hover {
-    box-shadow: 0 0 30px hsl(38 60% 55% / 0.15);
+    box-shadow: 0 8px 40px hsl(var(--gold) / 0.12);
   }
 }
